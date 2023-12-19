@@ -78,8 +78,8 @@ df_pivot = df.pivot(index = 'ID_num', columns='Subject', values = 'Score') ID_nu
 df_pivot = df.pivot(index='ID_num', columns='Subject', values='Score').sum(axis=1) 다 합함  
 group_mean = df.groupby('Subject')['Score'].mean() Subject의 각 Score를 연산해 평균을 냄  
 print(df.sort_values(by='Score', ascending=False)) Score기준 내림차순 정렬  
-print(df.sort_values(by=['Score', 'Subject'])) Score기준 오름차순 정렬, 같은 값이 있다면 Subject별로 내림차순 정렬 B가 더 크다..!  
-print(df.sort_values(by=['Subject', 'Score'])) Subject기준 오름차순 정렬, 같은 값이 있다면 Score별로 내림차순 정렬 B가 더 크다..! 먼저 정렬된다!  
+print(df.sort_values(by=['Score', 'Subject'])) Score기준 오름차순 정렬, 같은 값이 있다면 Subject별로 오름차순 정렬 B가 더 크다..!  
+print(df.sort_values(by=['Subject', 'Score'])) Subject기준 오름차순 정렬, 같은 값이 있다면 Score별로 오름차순 정렬 B가 더 크다..! 먼저 정렬된다!  
   
 file_data = pd.read_csv("경로/파일이름.csv") csv파일을 읽는다 그게 끝이다  
 total_score=file_data['점수']*5+file_data['출석'] 점수 열의 데이터 * 5 + 출석 열의 데이터를 리스트로 만든다  
