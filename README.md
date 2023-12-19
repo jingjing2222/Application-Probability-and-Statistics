@@ -86,7 +86,7 @@ total_score=file_data['점수']*5+file_data['출석'] 점수 열의 데이터 * 
 new_data=[file_data['이름'],total_score] 이름 열의 데이터와, total_score의 데이터를 리스트화 한다  
 result=pd.concat(new_data,axis=1,keys=['name','total'])  new_data의 리스트를, name, total이라는 열을 생성해 result라는 배열을 생성한다  
 result.to_csv("경로/파일이름.csv") csv 파일 생성  
-result.to_excel("경로/파일이름.excel") excel 파일 생성  
+result.to_excel("경로/파일이름.xlsx") excel 파일 생성  
   
 df=pd.DataFrame(pd.read_excel("파일경로/파일이름.excel")) 엑셀을 읽는다  
 df.info() non-null이 몇개인지, Dtype이 뭔지 알려준다  
