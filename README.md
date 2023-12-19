@@ -10,7 +10,7 @@ Lst.extend(Lst1) Lst 리스트에 Lst1 리스트 붙이기
 Lst.sort() Lst 정렬  
 Lst.reverse() Lst 뒤집기  
 #
-numpy(array)  
+배열(import numpy ad np)  
   
 arr1=np.array([1,2,3,4,5])  
 arr2=np.array([6,7,8,9,10])  
