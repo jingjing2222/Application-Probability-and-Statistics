@@ -83,7 +83,7 @@ print(df.sort_values(by=['Subject', 'Score'])) Subject기준 오름차순 정렬
   
 file_data = pd.read_csv("경로/파일이름.csv") csv파일을 읽는다 그게 끝이다  
 total_score=file_data['점수']*5+file_data['출석'] 점수 열의 데이터 * 5 + 출석 열의 데이터를 DataFrame의 한 열로 만든다. 이는 인덱스를 가진 1차원 배열과 유사하다  
-new_data=[file_data['이름'],total_score] 이름 열의 데이터와, total_score의 데이터를 리스트화 한다 
+new_data=[file_data['이름'],total_score] 이름 열의 데이터와, total_score의 데이터를 리스트화 한다  
 result=pd.concat(new_data,axis=1,keys=['name','total'])  new_data의 리스트를, name, total이라는 열을 생성해 result라는 배열을 생성한다  
 result.to_csv("경로/파일이름.csv") csv 파일 생성  
 result.to_excel("경로/파일이름.excel") excel 파일 생성  
