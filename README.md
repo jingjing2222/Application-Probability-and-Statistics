@@ -63,3 +63,33 @@ df_y = pd.DataFrame({"x1" : ['B', 'C', 'D'],"x3" : [2, 3, 4]})
 df_merge_left=pd.merge(df_x,df_y,how="left") 왼쪽 행렬을 기준으로 병합함, x1이라는 공통 열을 기준에서, df_y의 x1열에 A가 없기 때문에, x3에 NaN을 추가하고, D행은 없어짐  
 df_merge_left=pd.merge(df_x,df_y,how="right") 마찬가지로 오른쪽 행렬을 기준으로 병합, df_x 행렬에서 x1열에 D가 없기 때문에, x2에 NaN값을 추가해서 출력, A행은 없어짐  
 df_merge_left=pd.merge(df_x,df_y) join의 성격을 갖고 있기에, x1에서 둘 다 가지고 있는 행만 병합함, 이 경우 D가 있는 행, C가 있는 행만 병합함  
+
+df = pd.DataFrame([  
+   ['20225001','A', 77],  
+   ['20225001','B', 80],  
+   ['20225002','A', 85],  
+   ['20225002','B', 82],  
+   ['20225003','A', 95],  
+   ['20225003','B', 90]],  
+    columns=['ID_num','Subject', 'Score'])  
+df_pivot = df.pivot(index = 'ID_num', columns='Subject', values = 'Score') ID_num을 인덱스로, Subject를 열로, Score를 Values로 행렬을 재배치함  
+df_pivot = df.pivot(index='ID_num', columns='Subject', values='Score').sum(axis=1) 다 합함  
+group_mean = df.groupby('Subject')['Score'].mean() Subject의 각 Score를 연산해 평균을 냄  
+print(df.sort_values(by='Score', ascending=False)) Score기준 내림차순 정렬  
+print(df.sort_values(by=['Score', 'Subject'])) Score기준 오름차순 정렬, 같은 값이 있다면 Subject별로 내림차순 정렬 B가 더 크다..!  
+print(df.sort_values(by=['Subject', 'Score'])) Subject기준 오름차순 정렬, 같은 값이 있다면 Score별로 내림차순 정렬 B가 더 크다..! 먼저 정렬된다!  
+file_data = pd.read_csv("Application Probability and Statistics/생활속의통계학-파이썬-학습자용/연습문제 데이터/sample1.csv") csv파일을 읽는다 그게 끝이다  
+total_score=file_data['점수']*5+file_data['출석'] 점수 열의 데이터 * 5 + 출석 열의 데이터를 리스트로 만든다  
+new_data=[file_data['이름'],total_score] 이름 열의 데이터와, total_score의 데이터를 리스트화 한다 
+result=pd.concat(new_data,axis=1,keys=['name','total'])  new_data의 리스트를, name, total이라는 열을 생성해 result라는 배열을 생성한다  
+result.to_csv("/Users/kimhyeongjeong/Desktop/학부/3-Winter/Application-Probability-and-Statistics/Application Probability and Statistics/2일차/2-17/result1.csv") csv 파일 생성  
+result.to_excel("/Users/kimhyeongjeong/Desktop/학부/3-Winter/Application-Probability-and-Statistics/Application Probability and Statistics/2일차/2-17/result1.xlsx") excel 파일 생성  
+df=pd.DataFrame(pd.read_excel("파일경로")) 엑셀을 읽는다  
+df.info() non-null이 몇개인지, Dtype이 뭔지 알려준다  
+df.isnull() null인지, 아닌지 체크한다 Nan=True, or False  
+df.isnull().sum() null의 갯수 체크한다  
+df.notnull() null인지, 아닌지 체크한다 Nan=False, or False  
+df.열이름.mean() 해당 열의 평균을 계산한다  
+df=df.fillna(df.열이름.mean()) 결측치인 Nan값에 평균값을 넣는다  
+df=df.replace(0,np.nan) 0값에 NaN을 넣는다. 0도 결측치로 따지라는 뜻  
+df=df.dropna(axis=0) Nan이 존재하는 열을 삭제한다. axis=1이면 행이 사라진다  
