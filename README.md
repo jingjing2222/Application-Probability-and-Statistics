@@ -48,3 +48,18 @@ a=np.array(index) index크기의 0~index-1 value가 들어간 배열 생성
 a=np.arange(-1,1,0.5) 시작점은 -1, 끝점은 1, 간격은 0.5 이러면 총 4칸의 배열 생성  
 a=np.linspace(0,1,5) 시작점은 0, 끝점은 1, index가 총 5개인 배열 생성, 이러면 [0,0.25,...,1]  
 #
+DataFrame(import pandas as pd)
+
+df1=pd.DataFrame([[1,2],[3,4],[5,6]],colums=['a','b'])  
+df2=pd.DataFrame({"c":[7,8,9],"d":[10,11,12]})  얘네는 서로 같은 사용법, 다른 문법  
+
+df3=pd.melt(df1) 원래의 열 이름이 'variable' 열에, 해당 값이 'value' 열에 나타남  
+df4=pd.concat([df1,df1], axis=0) axis=0은 세로로 합침 이 경우는 3행 2열, 3행 2열인데 열이 서로 같으니 6행 2열의 행렬이 될 것  
+df4=pd.concat([df1,df1], axis=1) axis=1은 가로로 합침 이 경우는 3행 2열, 3행 2열인데 그냥 옆으로 붙을 것, 3행 4열의 행렬이 됨  
+df5=pd.concat([df1,df2], axis=0) axis=0은 세로로 합치는데, 이 경우 열이 서로 다르므로, NaN값이 추가돼서 6행 4열의 행렬이 됨  
+df5=pd.concat([df1,df2], axis=1) axis=1은 가로로 합치는데, 이 경우 옆으로 그냥 붙어서 3행 4열의 행렬이 됨  
+df_x = pd.DataFrame([['A', 1], ['B', 2],['C', 3]],columns=['x1', 'x2'])  
+df_y = pd.DataFrame({"x1" : ['B', 'C', 'D'],"x3" : [2, 3, 4]})  
+df_merge_left=pd.merge(df_x,df_y,how="left") 왼쪽 행렬을 기준으로 병합함, x1이라는 공통 열을 기준에서, df_y의 x1열에 A가 없기 때문에, x3에 NaN을 추가하고, D행은 없어짐  
+df_merge_left=pd.merge(df_x,df_y,how="right") 마찬가지로 오른쪽 행렬을 기준으로 병합, df_x 행렬에서 x1열에 D가 없기 때문에, x2에 NaN값을 추가해서 출력, A행은 없어짐  
+df_merge_left=pd.merge(df_x,df_y) join의 성격을 갖고 있기에, x1에서 둘 다 가지고 있는 행만 병합함, 이 경우 D가 있는 행, C가 있는 행만 병합함  
