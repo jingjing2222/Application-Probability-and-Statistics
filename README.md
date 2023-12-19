@@ -78,13 +78,15 @@ group_mean = df.groupby('Subject')['Score'].mean() Subject의 각 Score를 연�
 print(df.sort_values(by='Score', ascending=False)) Score기준 내림차순 정렬  
 print(df.sort_values(by=['Score', 'Subject'])) Score기준 오름차순 정렬, 같은 값이 있다면 Subject별로 내림차순 정렬 B가 더 크다..!  
 print(df.sort_values(by=['Subject', 'Score'])) Subject기준 오름차순 정렬, 같은 값이 있다면 Score별로 내림차순 정렬 B가 더 크다..! 먼저 정렬된다!  
-file_data = pd.read_csv("Application Probability and Statistics/생활속의통계학-파이썬-학습자용/연습문제 데이터/sample1.csv") csv파일을 읽는다 그게 끝이다  
+  
+file_data = pd.read_csv("경로/파일이름.csv") csv파일을 읽는다 그게 끝이다  
 total_score=file_data['점수']*5+file_data['출석'] 점수 열의 데이터 * 5 + 출석 열의 데이터를 리스트로 만든다  
 new_data=[file_data['이름'],total_score] 이름 열의 데이터와, total_score의 데이터를 리스트화 한다 
 result=pd.concat(new_data,axis=1,keys=['name','total'])  new_data의 리스트를, name, total이라는 열을 생성해 result라는 배열을 생성한다  
-result.to_csv("/Users/kimhyeongjeong/Desktop/학부/3-Winter/Application-Probability-and-Statistics/Application Probability and Statistics/2일차/2-17/result1.csv") csv 파일 생성  
-result.to_excel("/Users/kimhyeongjeong/Desktop/학부/3-Winter/Application-Probability-and-Statistics/Application Probability and Statistics/2일차/2-17/result1.xlsx") excel 파일 생성  
-df=pd.DataFrame(pd.read_excel("파일경로")) 엑셀을 읽는다  
+result.to_csv("경로/파일이름.csv") csv 파일 생성  
+result.to_excel("경로/파일이름.excel") excel 파일 생성  
+  
+df=pd.DataFrame(pd.read_excel("파일경로/파일이름.excel")) 엑셀을 읽는다  
 df.info() non-null이 몇개인지, Dtype이 뭔지 알려준다  
 df.isnull() null인지, 아닌지 체크한다 Nan=True, or False  
 df.isnull().sum() null의 갯수 체크한다  
