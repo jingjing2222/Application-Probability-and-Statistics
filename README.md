@@ -90,10 +90,10 @@ result.to_excel("경로/파일이름.excel") excel 파일 생성
   
 df=pd.DataFrame(pd.read_excel("파일경로/파일이름.excel")) 엑셀을 읽는다  
 df.info() non-null이 몇개인지, Dtype이 뭔지 알려준다  
-df.isnull() null인지, 아닌지 체크한다 Nan=True, or False  
-df.isnull().sum() null의 갯수 체크한다  
-df.notnull() null인지, 아닌지 체크한다 Nan=False, or False  
+df.isnull() NaN인지, 아닌지 체크한다 Nan=True, or False  
+df.isnull().sum() NaN의 갯수 체크한다  
+df.notnull() NaN인지, 아닌지 체크한다 Nan=False, or False  
 df.열이름.mean() 해당 열의 평균을 계산한다  
-df=df.fillna(df.열이름.mean()) 결측치인 Nan값에 평균값을 넣는다  
+df=df.fillna(df.열이름.mean()) 결측치인 NaN값에 평균값을 넣는다  
 df=df.replace(0,np.nan) 0값에 NaN을 넣는다. 0도 결측치로 따지라는 뜻  
 df=df.dropna(axis=0) Nan이 존재하는 열을 삭제한다. axis=1이면 행이 사라진다  
