@@ -10,6 +10,6 @@ df = pd.DataFrame([
     columns=['ID_num','Subject', 'Score'])
 
 print(df, '\n')
-group_mean = df.groupby(by='Subject').mean()
+group_mean = df.groupby('ID_num')['Score'].mean()
 print(group_mean)
 

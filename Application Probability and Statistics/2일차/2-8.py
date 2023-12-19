@@ -1,6 +1,4 @@
 import numpy as np
-a = np.zero(5, dtype=int)
-print(a)
 
 a = np.zeros((2,2), dtype=int)
 print(a)

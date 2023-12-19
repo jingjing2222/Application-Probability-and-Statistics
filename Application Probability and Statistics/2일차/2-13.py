@@ -13,5 +13,5 @@ df_pivot = df.pivot(index = 'ID_num',
         columns='Subject', values = 'Score')
 print(df_pivot, '\n')
 
-df_pivot = df.pivot('ID_num','Subject').sum(1)
+df_pivot = df.pivot(index='ID_num', columns='Subject', values='Score').sum(axis=1)
 print(df_pivot, '\n')
