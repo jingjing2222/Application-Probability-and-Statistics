@@ -130,6 +130,7 @@ print(stats.mode(x)) 최빈값 출력
 q25=data.quantile(0.25)  
 q75=data.quantile(0.75)  
 IRQ=q75-q25  
+#
 print(IRQ/2) 데이터 사분위수 편차 quartile deviation  
 
 print(data.describe()) pandas에서 제공하는 함수, 개수, 평균, 표준편차, 최소, 최대, 25%, 50%, 75%값 제공  
