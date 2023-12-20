@@ -95,5 +95,42 @@ df.isnull().sum() NaN의 갯수 체크한다
 df.notnull() NaN인지, 아닌지 체크한다 Nan=False, or False  
 df.열이름.mean() 해당 열의 평균을 계산한다  
 df=df.fillna(df.열이름.mean()) 결측치인 NaN값에 평균값을 넣는다  
-df=df.replace(0,np.nan) 0값에 NaN을 넣는다. 0도 결측치로 따지라는 뜻  
+df=df.replace(0,np.nan) 0값에 NaN을 넣는다. 0도 결측치로 따지라는 뜻
 df=df.dropna(axis=0) Nan이 존재하는 열을 삭제한다. axis=1이면 행이 사라진다  
+#
+3일차  
+#
+import matplotlib.pyplot as plt  
+data=pd.read_excel("경로/파일이름.xlsx")  
+plt.hist(data, label='bins=5', bins=5) 막대수 5의 막대그래프 출력  
+plt.legend() 범례 출력  
+plt.show() 출력  
+plt.bar(x,y) x, y는 각각 리스트로 x축 y축 막대 그래프를 띄움  
+plt.title('제목') 제목 표시  
+ratio=[value1, value2,...,valueN]  
+labels=['이름1','이름2',...,'이름N']  
+plt.pie(ratio, labels=labels, autopct='%.1f%%')  소수 이하 첫째자리까지 퍼센트 표시
+plt.show()  
+plt.plot(x,y,linestyle={'solid','dashed'}, label='이름') solid=직선, dashed=점선  
+plt.legend(loc='best', ncol=n) 범례위치, 행1에 n개의 범례 표시  
+plt.boxplot(data, vert={True, False}) True=세로, False=가로
+plt.scatter(data.height, data.weight) 산점도 그래프  
+plt.xlabel('height') 가로축 이름  
+plt.ylabel('weight') 세로축 이름  
+
+import seaborn as sns  
+iris = sns.load_dataset('iris')  
+iris.head  데이터 불러오기
+sns.pairplot(iris, diag_kind='hist)  산점도 행렬 출력
+plt.show()  
+
+from scipy import stats  
+print(stats.mode(x)) 최빈값 출력  
+
+q25=data.quantile(0.25)  
+q75=data.quantile(0.75)  
+IRQ=q75-q25  
+print(IRQ/2) 데이터 사분위수 편차 quartile deviation  
+
+print(data.describe()) pandas에서 제공하는 함수, 개수, 평균, 표준편차, 최소, 최대, 25%, 50%, 75%값 제공  
+print(stats.describe(data)) stats에서 제공하는 함수 데이터 개수, 최대 최소, 평균, 분산, 왜도, 첨도 출력  
