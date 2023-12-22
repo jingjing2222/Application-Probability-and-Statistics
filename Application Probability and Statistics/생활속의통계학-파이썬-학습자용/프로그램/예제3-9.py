@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
 
-data = pd.DataFrame(pd.read_excel("..\데이터\외식비.xlsx"))
+data = pd.DataFrame(pd.read_excel("Application Probability and Statistics/생활속의통계학-파이썬-학습자용/연습문제 데이터/외식비.xlsx"))
 
 print('범위 range')
-print(np.max(data)-np.min(data))
+print(data.max()-data.min())
 print('\n')
 
 print('분산 variance')

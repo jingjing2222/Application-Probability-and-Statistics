@@ -5,6 +5,6 @@ import seaborn as sns
 iris = sns.load_dataset('iris')
 iris.head()
 
-# 산점도 행렬 
+#산점도 행렬 
 sns.pairplot(iris, diag_kind='hist')
 plt.show()

@@ -9,8 +9,7 @@ df = pd.DataFrame([
     columns=['ID_num','Subject', 'Score'])
 print(df, '\n')
 
-df_pivot = df.pivot(index = 'ID_num', 
-        columns='Subject', values = 'Score')
+df_pivot = df.pivot(index = 'ID_num', columns='Subject', values = 'Score')
 print(df_pivot, '\n')
 
 df_pivot = df.pivot(index='ID_num', columns='Subject', values='Score').sum(axis=1)
